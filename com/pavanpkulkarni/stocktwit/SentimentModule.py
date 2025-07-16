@@ -1,13 +1,13 @@
 import nltk
 import random
 from nltk.classify.scikitlearn import SklearnClassifier
-import pickle
 from sklearn.naive_bayes import MultinomialNB, BernoulliNB
 from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.svm import SVC, LinearSVC, NuSVC
 from nltk.classify import ClassifierI
 from statistics import mode
 from nltk.tokenize import word_tokenize
+import fickling
 
 
 
@@ -33,27 +33,27 @@ class VoteClassifier(ClassifierI):
         return conf
 
 word_features_f = open("/Users/pavan/Documents/workspace_hu/StockTwit_SentimentAnalysis/all_pickles/word_features.pickle", "rb")
-word_features = pickle.load(word_features_f)
+word_features = fickling.load(word_features_f)
 word_features_f.close()
 
 open_file = open("/Users/pavan/Documents/workspace_hu/StockTwit_SentimentAnalysis/all_pickles/NaiveBayes_classifier.pickle", "rb")
-NaiveBayes_classifier = pickle.load(open_file)
+NaiveBayes_classifier = fickling.load(open_file)
 open_file.close()
 
 open_file = open("/Users/pavan/Documents/workspace_hu/StockTwit_SentimentAnalysis/all_pickles/MNB_classifier.pickle", "rb")
-MNB_classifier = pickle.load(open_file)
+MNB_classifier = fickling.load(open_file)
 open_file.close()
 
 open_file = open("/Users/pavan/Documents/workspace_hu/StockTwit_SentimentAnalysis/all_pickles/BernoulliNB_classifier.pickle", "rb")
-BernoulliNB_classifier = pickle.load(open_file)
+BernoulliNB_classifier = fickling.load(open_file)
 open_file.close()
 
 open_file = open("/Users/pavan/Documents/workspace_hu/StockTwit_SentimentAnalysis/all_pickles/LogisticRegression_classifier.pickle", "rb")
-LogisticRegression_classifier = pickle.load(open_file)
+LogisticRegression_classifier = fickling.load(open_file)
 open_file.close()
 
 open_file = open("/Users/pavan/Documents/workspace_hu/StockTwit_SentimentAnalysis/all_pickles/LinearSVC_classifier.pickle", "rb")
-LinearSVC_classifier = pickle.load(open_file)
+LinearSVC_classifier = fickling.load(open_file)
 open_file.close()
 
 voted_classifier = VoteClassifier(
